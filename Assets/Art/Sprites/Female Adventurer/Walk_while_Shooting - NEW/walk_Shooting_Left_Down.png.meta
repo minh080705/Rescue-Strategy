@@ -1,0 +1,303 @@
+fileFormatVersion: 2
+guid: 26976602475dc1f4ab4bd644849dc69f
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 24
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: walk_Shooting_Left_Down_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 21
+        width: 25
+        height: 25
+      alignment: 9
+      pivot: {x: 0.67742723, y: -0.0036964417}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc8bff48671eeac42bd89b4c6b1dbf98
+      internalID: -995111075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: walk_Shooting_Left_Down_1
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 21
+        width: 21
+        height: 24
+      alignment: 9
+      pivot: {x: 0.5440049, y: -0.00000007947286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e806ae87caa6a174bb66973bcfce42a7
+      internalID: 1952491561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: walk_Shooting_Left_Down_2
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 22
+        width: 25
+        height: 23
+      alignment: 9
+      pivot: {x: 0.5507669, y: -0.0045981198}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea50fa351920f7244aff2d05deeca5d3
+      internalID: -1410885666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: walk_Shooting_Left_Down_3
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 22
+        width: 21
+        height: 24
+      alignment: 9
+      pivot: {x: 0.5590399, y: 0.0064574084}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3888f6e2cfa9e5f4bb10c8d43b3b436f
+      internalID: -51822745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: walk_Shooting_Left_Down_4
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 21
+        width: 25
+        height: 25
+      alignment: 9
+      pivot: {x: 0.57439023, y: 0.04959389}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edc5f72fbcc8c0d47957eb7c329d17a1
+      internalID: -1470762491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: walk_Shooting_Left_Down_5
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 20
+        width: 21
+        height: 25
+      alignment: 9
+      pivot: {x: 0.60331947, y: 0.006199112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ded08da03445cdf47a926f588b763d81
+      internalID: -1724675943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: walk_Shooting_Left_Down_6
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 20
+        width: 25
+        height: 25
+      alignment: 9
+      pivot: {x: 0.68244386, y: 0.013514481}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62c8b1272a8aeeb45999c8f7d377d847
+      internalID: -557040632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: walk_Shooting_Left_Down_7
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 20
+        width: 21
+        height: 26
+      alignment: 9
+      pivot: {x: 0.5539653, y: 0.0108969025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b277b82ab208d0a478319c2323756e44
+      internalID: -1158387163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      walk_Shooting_Left_Down_0: -995111075
+      walk_Shooting_Left_Down_1: 1952491561
+      walk_Shooting_Left_Down_2: -1410885666
+      walk_Shooting_Left_Down_3: -51822745
+      walk_Shooting_Left_Down_4: -1470762491
+      walk_Shooting_Left_Down_5: -1724675943
+      walk_Shooting_Left_Down_6: -557040632
+      walk_Shooting_Left_Down_7: -1158387163
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
