@@ -10,7 +10,7 @@ public class BulletPool : MonoBehaviour
     // ── Inspector ─────────────────────────────────────────
     [Header("Pool")]
     public GameObject bulletPrefab;
-    public int initialSize = 10;
+    public int initialSize = 110;
 
     // ── Internal ──────────────────────────────────────────
     private Queue<GameObject> pool = new Queue<GameObject>();

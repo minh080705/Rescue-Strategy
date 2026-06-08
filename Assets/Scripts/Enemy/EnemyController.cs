@@ -28,11 +28,13 @@ public class EnemyController : MonoBehaviour
     [Tooltip("Thời gian Idle sau attack trước khi chase lại (giây)")]
     public float idleAfterAttackDuration = 1.0f;
 
+    private bool hasAlerted = false; // giữ để tránh lỗi compile, không dùng nữa
+
     [Header("Knockback")]
     public float knockbackDuration = 0.3f;
 
     // ── Internal refs ─────────────────────────────────────
-    [HideInInspector] public EnemySpawner spawner;
+    
 
     private Rigidbody2D rb;
     private HealthComponent health;
@@ -42,8 +44,11 @@ public class EnemyController : MonoBehaviour
     private Transform hostageTransform;
 
     // ── State machine ─────────────────────────────────────
-    public enum EnemyState { Idle, Chase, Attack, Dead }
+    public enum EnemyState { Idle, Chase, Attack, Dead, Returning }
     public EnemyState State { get; private set; } = EnemyState.Idle;
+
+    // Vị trí spawn — lưu khi OnEnable để dùng cho leash
+    public Vector2 SpawnPosition { get; private set; }
 
     private float attackCooldownTimer = 0f;
     private float idleAfterAttackTimer = 0f;
@@ -87,12 +92,20 @@ public class EnemyController : MonoBehaviour
         attackCooldownTimer = 0f;
         idleAfterAttackTimer = 0f;
 
+        SpawnPosition = transform.position;
         SetState(EnemyState.Idle);
 
         GameObject p = GameObject.FindGameObjectWithTag("Player");
         GameObject h = GameObject.FindGameObjectWithTag("Hostage");
         if (p != null) playerTransform = p.transform;
         if (h != null) hostageTransform = h.transform;
+
+        EnemyAlertSystem.Instance?.Register(this);
+    }
+
+    void OnDisable()
+    {
+        EnemyAlertSystem.Instance?.Unregister(this);
     }
 
     void FixedUpdate()
@@ -122,6 +135,7 @@ public class EnemyController : MonoBehaviour
             case EnemyState.Idle: UpdateIdle(); break;
             case EnemyState.Chase: UpdateChase(); break;
             case EnemyState.Attack: UpdateAttack(); break;
+            case EnemyState.Returning: UpdateReturning(); break;
         }
     }
 
@@ -138,9 +152,17 @@ public class EnemyController : MonoBehaviour
             return;
         }
 
-        // Chỉ chase khi target trong detectionRange
         Transform target = GetClosestTarget();
-        if (target != null && Vector2.Distance(transform.position, target.position) <= detectionRange)
+        if (target == null) return;
+
+        float dist = Vector2.Distance(transform.position, target.position);
+
+        // Dùng alertDetectionRange nếu nhóm đang alert, ngược lại dùng detectionRange bình thường
+        float effectiveRange = (EnemyAlertSystem.Instance != null && EnemyAlertSystem.Instance.IsAlerted)
+            ? EnemyAlertSystem.Instance.alertDetectionRange
+            : detectionRange;
+
+        if (dist <= effectiveRange)
             SetState(EnemyState.Chase);
     }
 
@@ -270,6 +292,39 @@ public class EnemyController : MonoBehaviour
         Debug.Log($"[Enemy:{name}] State → {newState}");
     }
 
+    // ── Force chase (gọi từ AlertSystem) ─────────────────
+    public void ForceChase()
+    {
+        if (State == EnemyState.Dead || State == EnemyState.Chase || State == EnemyState.Attack)
+            return;
+
+        hasAlerted = true; // tránh re-alert liên tục
+        SetState(EnemyState.Chase);
+    }
+
+    // ── Return về spawn ───────────────────────────────────
+    void UpdateReturning()
+    {
+        float dist = Vector2.Distance(transform.position, SpawnPosition);
+        if (dist <= 0.5f)
+        {
+            rb.velocity = Vector2.zero;
+            SetState(EnemyState.Idle);
+            return;
+        }
+
+        Vector2 dir = ((Vector2)SpawnPosition - (Vector2)transform.position).normalized;
+        rb.velocity = dir * moveSpeed;
+        UpdateFacing(dir);
+    }
+
+    public void ForceReturn()
+    {
+        if (State == EnemyState.Dead || State == EnemyState.Returning) return;
+        hasAlerted = false;
+        SetState(EnemyState.Returning);
+    }
+
     // ── Knockback ─────────────────────────────────────────
     void OnKnockback(Vector2 force)
     {
@@ -329,6 +384,6 @@ public class EnemyController : MonoBehaviour
         CancelInvoke(nameof(ReturnToPool));
         anim.EnableHitbox(false);
         rb.velocity = Vector2.zero;
-        spawner?.ReturnToPool(gameObject);
+        gameObject.SetActive(false);
     }
 }

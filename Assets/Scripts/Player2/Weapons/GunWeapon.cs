@@ -11,7 +11,7 @@ public class GunWeapon : MonoBehaviour, IWeapon
     // ── Inspector ─────────────────────────────────────────
     [Header("Ammo")]
     public int maxAmmo = 10;
-    public float reloadDuration = 1.5f;
+    public float reloadDuration = 0.7f;
 
     [Header("Fire")]
     public float fireRate = 0.15f;   // giây giữa 2 phát
@@ -138,8 +138,15 @@ public class GunWeapon : MonoBehaviour, IWeapon
             ? (Vector2)muzzle.position
             : (Vector2)transform.position;
 
-        bulletPool.Get(spawnPos, facing, DamageSource.Player);
-
+        Bullet bullet = bulletPool.Get(spawnPos, facing, DamageSource.Player);
+        bullet.gameObject.layer = gameObject.layer;
+        SpriteRenderer playerSR = GetComponent<SpriteRenderer>();
+        SpriteRenderer bulletSR = bullet.GetComponent<SpriteRenderer>();
+        if (playerSR != null && bulletSR != null)
+        {
+            bulletSR.sortingLayerID = playerSR.sortingLayerID;
+            bulletSR.sortingOrder = playerSR.sortingOrder;
+        }
         currentAmmo--;
         NotifyAmmoUI();
         anim?.SetBool(HashIsAttacking, true);
