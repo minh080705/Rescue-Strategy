@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - GoalZone
+  - Hostage
+  - Enemy
+  - PlayerTrigger
   layers:
   - Default
   - TransparentFX
@@ -17,10 +21,10 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - Wall1
+  - Wall2
+  - Props1
+  - Props2
   - 
   - 
   - 

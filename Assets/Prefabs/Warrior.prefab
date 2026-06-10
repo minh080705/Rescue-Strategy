@@ -208,6 +208,8 @@ GameObject:
   - component: {fileID: 8671254642401144071}
   - component: {fileID: 2978167748114279729}
   - component: {fileID: 3633102197379891733}
+  - component: {fileID: -8769397681041851345}
+  - component: {fileID: -536374014815092889}
   m_Layer: 20
   m_Name: Warrior
   m_TagString: Enemy
@@ -417,13 +419,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5a4cc4232ba0fb46bd98131ab4748f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2.5
-  detectionRange: 3
+  moveSpeed: 2
+  detectionRange: 8
   attackRange: 1
   attackCooldown: 1
   idleAfterAttackDuration: 0.5
+  group: {fileID: 0}
   knockbackDuration: 0.3
   attackTimeout: 2
+--- !u!114 &-8769397681041851345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3147336940157467358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  drawGizmos: 1
+  detailedGizmos: 0
+  startEndModifier:
+    addPoints: 0
+    exactStartPoint: 3
+    exactEndPoint: 3
+    useRaycasting: 0
+    mask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    useGraphRaycasting: 0
+  traversableTags: -1
+  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask:
+    value: -1
+--- !u!114 &-536374014815092889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3147336940157467358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13de19ba5fc032f4c8642e3b6a3b4ae5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  repathRate: 0.5
+  waypointDist: 0.5
+  stopDist: 1.5
 --- !u!1 &4531741779011198703
 GameObject:
   m_ObjectHideFlags: 0

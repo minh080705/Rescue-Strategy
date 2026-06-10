@@ -9,6 +9,7 @@
 //   - Số lượng
 //   - Phase: Normal (đi tới) hoặc Return (quay về với con tin)
 
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -56,6 +57,7 @@ public class SpawnPoint : MonoBehaviour
     private bool hasSpawnedReturn = false;
     private bool isReturning = false;
 
+    private EnemyGroup enemyGroup;
     private Transform playerTransform;
 
     // ── Unity lifecycle ───────────────────────────────────
@@ -71,6 +73,9 @@ public class SpawnPoint : MonoBehaviour
         // Cache player
         GameObject p = GameObject.FindGameObjectWithTag("Player");
         if (p != null) playerTransform = p.transform;
+
+        // Tạo EnemyGroup cho nhóm này
+        enemyGroup = gameObject.AddComponent<EnemyGroup>();
 
         // Cache hostage
         hostage = FindObjectOfType<HostageController>();
@@ -128,6 +133,11 @@ public class SpawnPoint : MonoBehaviour
             {
                 Vector2 spawnPos = positions[i];
                 GameObject obj = EnemySpawnManager.Instance.Get(entry.prefab, spawnPos);
+
+                // Gán vào group của SpawnPoint này
+                EnemyController ec = obj.GetComponent<EnemyController>();
+                if (ec != null)
+                    ec.group = enemyGroup;
 
                 SpawnPointReturnHelper helper = obj.GetComponent<SpawnPointReturnHelper>();
                 if (helper == null)

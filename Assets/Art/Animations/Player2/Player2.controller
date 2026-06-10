@@ -1584,7 +1584,7 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: Blend
     m_Mirror: 0
-  m_BlendParameter: WeaponTypeF
+  m_BlendParameter: FacingIndexF
   m_BlendParameterY: Blend
   m_MinThreshold: 0
   m_MaxThreshold: 7

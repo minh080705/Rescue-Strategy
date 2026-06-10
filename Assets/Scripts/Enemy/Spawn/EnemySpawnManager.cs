@@ -51,6 +51,11 @@ public class EnemySpawnManager : MonoBehaviour
         GameObject obj = pool.Count > 0 ? pool.Dequeue() : Instantiate(prefab);
         obj.transform.position = position;
         obj.SetActive(true);
+
+
+        Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
+        if (rb != null) rb.position = position;
+
         return obj;
     }
 

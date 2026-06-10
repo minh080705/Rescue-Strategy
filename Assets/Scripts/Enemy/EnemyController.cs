@@ -28,13 +28,13 @@ public class EnemyController : MonoBehaviour
     [Tooltip("Thời gian Idle sau attack trước khi chase lại (giây)")]
     public float idleAfterAttackDuration = 1.0f;
 
-    private bool hasAlerted = false; // giữ để tránh lỗi compile, không dùng nữa
+    // ── Group ────────────────────────────────────────────
+    [HideInInspector] public EnemyGroup group;
 
     [Header("Knockback")]
     public float knockbackDuration = 0.3f;
 
     // ── Internal refs ─────────────────────────────────────
-    
 
     private Rigidbody2D rb;
     private HealthComponent health;
@@ -100,12 +100,11 @@ public class EnemyController : MonoBehaviour
         if (p != null) playerTransform = p.transform;
         if (h != null) hostageTransform = h.transform;
 
-        EnemyAlertSystem.Instance?.Register(this);
     }
 
     void OnDisable()
     {
-        EnemyAlertSystem.Instance?.Unregister(this);
+        group?.Unregister(this);
     }
 
     void FixedUpdate()
@@ -158,8 +157,8 @@ public class EnemyController : MonoBehaviour
         float dist = Vector2.Distance(transform.position, target.position);
 
         // Dùng alertDetectionRange nếu nhóm đang alert, ngược lại dùng detectionRange bình thường
-        float effectiveRange = (EnemyAlertSystem.Instance != null && EnemyAlertSystem.Instance.IsAlerted)
-            ? EnemyAlertSystem.Instance.alertDetectionRange
+        float effectiveRange = (group != null && group.IsAlerted)
+            ? group.alertDetectionRange
             : detectionRange;
 
         if (dist <= effectiveRange)
@@ -178,8 +177,13 @@ public class EnemyController : MonoBehaviour
 
         float dist = Vector2.Distance(transform.position, target.position);
 
-        // Target chạy ra ngoài detectionRange → về Idle
-        if (dist > detectionRange)
+        // Target chạy ra ngoài range → về Idle
+        // Dùng alertDetectionRange nếu đang alert để tránh Idle/Chase liên tục
+        float exitRange = (group != null && group.IsAlerted)
+            ? group.alertDetectionRange
+            : detectionRange;
+
+        if (dist > exitRange)
         {
             SetState(EnemyState.Idle);
             return;
@@ -298,7 +302,6 @@ public class EnemyController : MonoBehaviour
         if (State == EnemyState.Dead || State == EnemyState.Chase || State == EnemyState.Attack)
             return;
 
-        hasAlerted = true; // tránh re-alert liên tục
         SetState(EnemyState.Chase);
     }
 
@@ -321,7 +324,6 @@ public class EnemyController : MonoBehaviour
     public void ForceReturn()
     {
         if (State == EnemyState.Dead || State == EnemyState.Returning) return;
-        hasAlerted = false;
         SetState(EnemyState.Returning);
     }
 
@@ -334,6 +336,9 @@ public class EnemyController : MonoBehaviour
     }
 
     // ── Target selection ──────────────────────────────────
+    // Public để EnemyPathfinder có thể gọi
+    public Transform GetCurrentTarget() => GetClosestTarget();
+
     Transform GetClosestTarget()
     {
         if (DistractionManager.Instance != null)
@@ -384,6 +389,5 @@ public class EnemyController : MonoBehaviour
         CancelInvoke(nameof(ReturnToPool));
         anim.EnableHitbox(false);
         rb.velocity = Vector2.zero;
-        gameObject.SetActive(false);
     }
 }
