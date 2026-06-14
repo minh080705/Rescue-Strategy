@@ -135,9 +135,11 @@ public class SpawnPoint : MonoBehaviour
                 GameObject obj = EnemySpawnManager.Instance.Get(entry.prefab, spawnPos);
 
                 // Gán vào group của SpawnPoint này
-                EnemyController ec = obj.GetComponent<EnemyController>();
-                if (ec != null)
-                    ec.group = enemyGroup;
+                BaseEnemy enemy = obj.GetComponent<BaseEnemy>();
+                if (enemy != null)
+                {
+                    enemy.group = enemyGroup;
+                }
 
                 SpawnPointReturnHelper helper = obj.GetComponent<SpawnPointReturnHelper>();
                 if (helper == null)

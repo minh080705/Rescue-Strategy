@@ -206,10 +206,10 @@ GameObject:
   - component: {fileID: 305543988526105569}
   - component: {fileID: 746596426633894940}
   - component: {fileID: 8671254642401144071}
-  - component: {fileID: 2978167748114279729}
-  - component: {fileID: 3633102197379891733}
   - component: {fileID: -8769397681041851345}
   - component: {fileID: -536374014815092889}
+  - component: {fileID: 4627706499117032269}
+  - component: {fileID: 5110508069502708480}
   m_Layer: 20
   m_Name: Warrior
   m_TagString: Enemy
@@ -394,39 +394,6 @@ MonoBehaviour:
   onDamaged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2978167748114279729
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3147336940157467358}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19067216c2d27a14a95012363909b18e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackHitbox: {fileID: 1489481816305831258}
---- !u!114 &3633102197379891733
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3147336940157467358}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5a4cc4232ba0fb46bd98131ab4748f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 2
-  detectionRange: 8
-  attackRange: 1
-  attackCooldown: 1
-  idleAfterAttackDuration: 0.5
-  group: {fileID: 0}
-  knockbackDuration: 0.3
-  attackTimeout: 2
 --- !u!114 &-8769397681041851345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -470,6 +437,39 @@ MonoBehaviour:
   repathRate: 0.5
   waypointDist: 0.5
   stopDist: 1.5
+--- !u!114 &4627706499117032269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3147336940157467358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01635036841e0d944aa264a9a517dabd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 2.5
+  detectionRange: 5
+  attackRange: 1.2
+  attackCooldown: 2
+  idleAfterAttackDuration: 1
+  knockbackDuration: 0.3
+  group: {fileID: 0}
+  attackTimeout: 2
+--- !u!114 &5110508069502708480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3147336940157467358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cceef46c6e2f0749a50eaa4b557d772, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackHitbox: {fileID: 1489481816305831258}
 --- !u!1 &4531741779011198703
 GameObject:
   m_ObjectHideFlags: 0

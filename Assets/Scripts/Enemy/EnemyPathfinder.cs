@@ -1,18 +1,18 @@
 ﻿// Assets/Scripts/Enemy/EnemyPathfinder.cs
 // Component riêng xử lý pathfinding bằng A*.
-// Attach cùng GameObject với EnemyController.
-// EnemyController vẫn giữ nguyên — EnemyPathfinder override velocity khi cần.
+// Attach cùng GameObject với BaseEnemy (WarriorController hoặc BatController).
+// BaseEnemy vẫn giữ nguyên — EnemyPathfinder override velocity khi cần.
 
 using UnityEngine;
 using Pathfinding;
 
-[RequireComponent(typeof(EnemyController))]
+[RequireComponent(typeof(BaseEnemy))]
 [RequireComponent(typeof(Seeker))]
 public class EnemyPathfinder : MonoBehaviour
 {
     // ── Inspector ─────────────────────────────────────────
     [Header("Pathfinding")]
-    [Tooltip("Tần suất tính lại đường (giây) — thấp hơn = mượt hơn nhưng nặng hơn")]
+    [Tooltip("Tần suất tính lại đường (giây)")]
     public float repathRate = 0.5f;
     [Tooltip("Khoảng cách đến waypoint tiếp theo thì chuyển sang waypoint kế")]
     public float waypointDist = 0.5f;
@@ -20,7 +20,7 @@ public class EnemyPathfinder : MonoBehaviour
     public float stopDist = 1.5f;
 
     // ── Internal ──────────────────────────────────────────
-    private EnemyController controller;
+    private BaseEnemy enemy;
     private Seeker seeker;
     private Rigidbody2D rb;
 
@@ -32,7 +32,7 @@ public class EnemyPathfinder : MonoBehaviour
     // ── Unity lifecycle ───────────────────────────────────
     void Awake()
     {
-        controller = GetComponent<EnemyController>();
+        enemy = GetComponent<BaseEnemy>();
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
     }
@@ -40,7 +40,7 @@ public class EnemyPathfinder : MonoBehaviour
     void Update()
     {
         // Chỉ pathfind khi đang Chase
-        if (controller.State != EnemyController.EnemyState.Chase)
+        if (!enemy.IsChasing)
         {
             isPathReady = false;
             return;
@@ -56,21 +56,19 @@ public class EnemyPathfinder : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Chỉ override velocity khi Chase và có path
-        if (controller.State != EnemyController.EnemyState.Chase) return;
+        if (!enemy.IsChasing) return;
         if (!isPathReady || currentPath == null) return;
-
         FollowPath();
     }
 
     // ── Pathfinding ───────────────────────────────────────
     void RequestPath()
     {
-        Transform target = controller.GetCurrentTarget();
+        Transform target = enemy.GetCurrentTarget();
         if (target == null) return;
 
         float dist = Vector2.Distance(transform.position, target.position);
-        if (dist <= stopDist) return; // đủ gần rồi, không cần path
+        if (dist <= stopDist) return;
 
         seeker.StartPath(transform.position, target.position, OnPathComplete);
     }
@@ -100,14 +98,12 @@ public class EnemyPathfinder : MonoBehaviour
         Vector2 dir = (waypoint - (Vector2)transform.position).normalized;
         float dist = Vector2.Distance(transform.position, waypoint);
 
-        // Đến waypoint → chuyển sang waypoint tiếp theo
         if (dist <= waypointDist)
         {
             waypointIndex++;
             return;
         }
 
-        // Override velocity từ EnemyController
-        rb.velocity = dir * controller.moveSpeed;
+        rb.velocity = dir * enemy.moveSpeed;
     }
 }
