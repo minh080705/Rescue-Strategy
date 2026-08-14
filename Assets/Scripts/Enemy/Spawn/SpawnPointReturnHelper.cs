@@ -12,13 +12,11 @@ public class SpawnPointReturnHelper : MonoBehaviour
     {
         prefab = sourcePrefab;
 
-        HealthComponent health = GetComponent<HealthComponent>();
-        if (health != null)
-            health.onDeath.AddListener(OnDeath);
+        
     }
 
-    void OnDeath(DamageSource source)
+    public void ReturnToPoolNow()
     {
-        EnemySpawnManager.Instance?.Return(prefab, gameObject);//
+        EnemySpawnManager.Instance?.Return(prefab, gameObject);
     }
 }

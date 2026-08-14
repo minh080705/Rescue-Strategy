@@ -113,12 +113,12 @@ TextureImporter:
       name: Attack_Spear_Up_0
       rect:
         serializedVersion: 2
-        x: 17
-        y: 21
-        width: 18
-        height: 26
+        x: 0
+        y: 0
+        width: 48
+        height: 64
       alignment: 9
-      pivot: {x: 0.36303234, y: 0.0048098196}
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -134,12 +134,12 @@ TextureImporter:
       name: Attack_Spear_Up_1
       rect:
         serializedVersion: 2
-        x: 65
-        y: 21
-        width: 16
-        height: 28
+        x: 48
+        y: 0
+        width: 48
+        height: 64
       alignment: 9
-      pivot: {x: 0.38015318, y: 0.010830334}
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -155,12 +155,12 @@ TextureImporter:
       name: Attack_Spear_Up_2
       rect:
         serializedVersion: 2
-        x: 113
-        y: 21
-        width: 16
-        height: 32
+        x: 96
+        y: 0
+        width: 48
+        height: 64
       alignment: 9
-      pivot: {x: 0.35040808, y: 0.010085881}
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -176,12 +176,12 @@ TextureImporter:
       name: Attack_Spear_Up_3
       rect:
         serializedVersion: 2
-        x: 160
-        y: 20
-        width: 17
-        height: 22
+        x: 144
+        y: 0
+        width: 48
+        height: 64
       alignment: 9
-      pivot: {x: 0.3873659, y: 0.081142165}
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -197,12 +197,12 @@ TextureImporter:
       name: Attack_Spear_Up_4
       rect:
         serializedVersion: 2
-        x: 208
-        y: 20
-        width: 16
-        height: 25
+        x: 192
+        y: 0
+        width: 48
+        height: 64
       alignment: 9
-      pivot: {x: 0.41024494, y: 0.054813996}
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -218,12 +218,12 @@ TextureImporter:
       name: Attack_Spear_Up_5
       rect:
         serializedVersion: 2
-        x: 254
-        y: 20
-        width: 18
-        height: 34
+        x: 240
+        y: 0
+        width: 48
+        height: 64
       alignment: 9
-      pivot: {x: 0.47091335, y: 0.017517034}
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -239,12 +239,12 @@ TextureImporter:
       name: Attack_Spear_Up_6
       rect:
         serializedVersion: 2
-        x: 304
-        y: 21
-        width: 20
-        height: 27
+        x: 288
+        y: 0
+        width: 48
+        height: 64
       alignment: 9
-      pivot: {x: 0.34417877, y: 0.006828732}
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -260,12 +260,12 @@ TextureImporter:
       name: Attack_Spear_Up_7
       rect:
         serializedVersion: 2
-        x: 353
-        y: 21
-        width: 17
-        height: 23
+        x: 336
+        y: 0
+        width: 48
+        height: 64
       alignment: 9
-      pivot: {x: 0.33334708, y: 0.019603066}
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

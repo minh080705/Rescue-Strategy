@@ -29,7 +29,6 @@ public abstract class BaseEnemy : MonoBehaviour
     // ── Internal refs ─────────────────────────────────────
     protected Rigidbody2D rb;
     protected HealthComponent health;
-
     protected Transform playerTransform;
     protected Transform hostageTransform;
 
@@ -65,6 +64,8 @@ public abstract class BaseEnemy : MonoBehaviour
     protected virtual void OnEnable()
     {
         health?.ResetHP();
+        var col = GetComponent<CapsuleCollider2D>();
+        if (col != null) col.enabled = true;
 
         isKnockedBack = false;
         knockbackTimer = 0f;
@@ -78,6 +79,7 @@ public abstract class BaseEnemy : MonoBehaviour
         GameObject h = GameObject.FindGameObjectWithTag("Hostage");
         if (p != null) playerTransform = p.transform;
         if (h != null) hostageTransform = h.transform;
+
     }
 
     protected virtual void OnDisable()
@@ -111,23 +113,27 @@ public abstract class BaseEnemy : MonoBehaviour
 
     protected Transform GetClosestTarget()
     {
-        if (DistractionManager.Instance != null)
-        {
-            Transform distraction = DistractionManager.Instance.GetClosest(transform.position);
-            if (distraction != null) return distraction;
-        }
+        HostageAI hostage = hostageTransform?.GetComponent<HostageAI>();
+        bool hostageAlive = hostage != null && (hostage.HostageState == HostageState.Following || hostage.HostageState == HostageState.Attack);
 
-        HostageController hostage = hostageTransform?.GetComponent<HostageController>();
-        bool hostageAlive = hostage != null && hostage.State != HostageState.Rescued;
+        // Lọc theo layer
+        bool playerSameLayer = playerTransform != null && IsSameLayer(playerTransform.gameObject);
+        bool hostageSameLayer = hostageAlive && hostageTransform != null && IsSameLayer(hostageTransform.gameObject);
 
-        if (playerTransform == null)
-            return hostageAlive ? hostageTransform : null;
-        if (!hostageAlive)
-            return playerTransform;
+        if (!playerSameLayer && !hostageSameLayer) return null;
+        if (!playerSameLayer) return hostageSameLayer ? hostageTransform : null;
+        if (!hostageSameLayer) return playerSameLayer ? playerTransform : null;
 
+        // Cả 2 cùng tầng → chọn cái gần hơn
         float dp = Vector2.Distance(transform.position, playerTransform.position);
         float dh = Vector2.Distance(transform.position, hostageTransform.position);
         return dp <= dh ? playerTransform : hostageTransform;
+    }
+
+    /// <summary>Kiểm tra target có cùng Physics Layer với enemy không.</summary>
+    protected bool IsSameLayer(GameObject target)
+    {
+        return target.layer == gameObject.layer;
     }
 
     // ── Facing ────────────────────────────────────────────
@@ -154,6 +160,8 @@ public abstract class BaseEnemy : MonoBehaviour
         rb.velocity = Vector2.zero;
         OnDeath(source);
         Invoke(nameof(ReturnToPool), 1.5f);
+        var col = GetComponent<CapsuleCollider2D>();
+        if (col != null) col.enabled = false;
         Debug.Log($"[{name}] Bị {source} tiêu diệt.");
     }
 
@@ -169,7 +177,12 @@ public abstract class BaseEnemy : MonoBehaviour
     {
         CancelInvoke(nameof(ReturnToPool));
         rb.velocity = Vector2.zero;
-        gameObject.SetActive(false);
+
+        var returnHelper = GetComponent<SpawnPointReturnHelper>();
+        if (returnHelper != null)
+            returnHelper.ReturnToPoolNow();   // trả về đúng pool sau 1.5s
+        else
+            gameObject.SetActive(false);      // fallback nếu không có helper
     }
 
     // ── Group API ─────────────────────────────────────────

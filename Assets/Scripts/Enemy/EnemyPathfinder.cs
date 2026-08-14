@@ -86,24 +86,24 @@ public class EnemyPathfinder : MonoBehaviour
         isPathReady = true;
     }
 
+    public Vector2 CurrentMoveDirection { get; private set; } = Vector2.zero;
+
     void FollowPath()
     {
         if (waypointIndex >= currentPath.vectorPath.Count)
         {
             isPathReady = false;
+            CurrentMoveDirection = Vector2.zero;
             return;
         }
-
         Vector2 waypoint = currentPath.vectorPath[waypointIndex];
         Vector2 dir = (waypoint - (Vector2)transform.position).normalized;
         float dist = Vector2.Distance(transform.position, waypoint);
-
         if (dist <= waypointDist)
         {
             waypointIndex++;
             return;
         }
-
-        rb.velocity = dir * enemy.moveSpeed;
+        CurrentMoveDirection = dir;   // lưu lại, KHÔNG tự set rb.velocity ở đây 
     }
 }

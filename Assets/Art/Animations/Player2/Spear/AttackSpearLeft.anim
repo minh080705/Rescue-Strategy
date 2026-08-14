@@ -34,7 +34,15 @@ AnimationClip:
       value: {fileID: 1688869980, guid: 99cf6fd3fbf427e4e9ff4943e4d28033, type: 3}
     - time: 0.5
       value: {fileID: -1681040284, guid: 99cf6fd3fbf427e4e9ff4943e4d28033, type: 3}
-    - time: 0.5833333
+    - time: 0.6666667
+      value: {fileID: -63599742, guid: 99cf6fd3fbf427e4e9ff4943e4d28033, type: 3}
+    - time: 0.75
+      value: {fileID: 1040418505, guid: 99cf6fd3fbf427e4e9ff4943e4d28033, type: 3}
+    - time: 0.8333333
+      value: {fileID: 1688869980, guid: 99cf6fd3fbf427e4e9ff4943e4d28033, type: 3}
+    - time: 1
+      value: {fileID: -1681040284, guid: 99cf6fd3fbf427e4e9ff4943e4d28033, type: 3}
+    - time: 1.1666666
       value: {fileID: 488814882, guid: 99cf6fd3fbf427e4e9ff4943e4d28033, type: 3}
     attribute: m_Sprite
     path: 
@@ -65,13 +73,17 @@ AnimationClip:
     - {fileID: 1040418505, guid: 99cf6fd3fbf427e4e9ff4943e4d28033, type: 3}
     - {fileID: 1688869980, guid: 99cf6fd3fbf427e4e9ff4943e4d28033, type: 3}
     - {fileID: -1681040284, guid: 99cf6fd3fbf427e4e9ff4943e4d28033, type: 3}
+    - {fileID: -63599742, guid: 99cf6fd3fbf427e4e9ff4943e4d28033, type: 3}
+    - {fileID: 1040418505, guid: 99cf6fd3fbf427e4e9ff4943e4d28033, type: 3}
+    - {fileID: 1688869980, guid: 99cf6fd3fbf427e4e9ff4943e4d28033, type: 3}
+    - {fileID: -1681040284, guid: 99cf6fd3fbf427e4e9ff4943e4d28033, type: 3}
     - {fileID: 488814882, guid: 99cf6fd3fbf427e4e9ff4943e4d28033, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.6666666
+    m_StopTime: 1.25
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -90,4 +102,18 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.25
+    functionName: OnSpearHit
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.8333333
+    functionName: OnSpearHitEnd
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

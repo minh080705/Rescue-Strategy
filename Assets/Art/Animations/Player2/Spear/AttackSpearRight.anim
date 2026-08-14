@@ -32,10 +32,16 @@ AnimationClip:
       value: {fileID: 1210724430, guid: c626e6f63ace8e141a8ad073dc169b01, type: 3}
     - time: 0.41666666
       value: {fileID: -1804937456, guid: c626e6f63ace8e141a8ad073dc169b01, type: 3}
-    - time: 0.5
-      value: {fileID: 820745969, guid: c626e6f63ace8e141a8ad073dc169b01, type: 3}
     - time: 0.5833333
-      value: {fileID: 1840164440, guid: c626e6f63ace8e141a8ad073dc169b01, type: 3}
+      value: {fileID: 1210724430, guid: c626e6f63ace8e141a8ad073dc169b01, type: 3}
+    - time: 0.6666667
+      value: {fileID: -1804937456, guid: c626e6f63ace8e141a8ad073dc169b01, type: 3}
+    - time: 0.75
+      value: {fileID: -1804937456, guid: c626e6f63ace8e141a8ad073dc169b01, type: 3}
+    - time: 0.9166667
+      value: {fileID: 820745969, guid: c626e6f63ace8e141a8ad073dc169b01, type: 3}
+    - time: 1.0833334
+      value: {fileID: -2114605959, guid: c626e6f63ace8e141a8ad073dc169b01, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -64,14 +70,17 @@ AnimationClip:
     - {fileID: 1892387821, guid: c626e6f63ace8e141a8ad073dc169b01, type: 3}
     - {fileID: 1210724430, guid: c626e6f63ace8e141a8ad073dc169b01, type: 3}
     - {fileID: -1804937456, guid: c626e6f63ace8e141a8ad073dc169b01, type: 3}
+    - {fileID: 1210724430, guid: c626e6f63ace8e141a8ad073dc169b01, type: 3}
+    - {fileID: -1804937456, guid: c626e6f63ace8e141a8ad073dc169b01, type: 3}
+    - {fileID: -1804937456, guid: c626e6f63ace8e141a8ad073dc169b01, type: 3}
     - {fileID: 820745969, guid: c626e6f63ace8e141a8ad073dc169b01, type: 3}
-    - {fileID: 1840164440, guid: c626e6f63ace8e141a8ad073dc169b01, type: 3}
+    - {fileID: -2114605959, guid: c626e6f63ace8e141a8ad073dc169b01, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.6666666
+    m_StopTime: 1.1666667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -90,4 +99,18 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.33333334
+    functionName: OnSpearHit
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.75
+    functionName: OnSpearHitEnd
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

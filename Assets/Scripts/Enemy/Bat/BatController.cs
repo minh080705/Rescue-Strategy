@@ -18,9 +18,15 @@ public class BatController : BaseEnemy
     private BatAnimator anim;
     private BatPoisonAttack pooledAttack;
     private BatWarningIndicator pooledWarning;
+    private EnemyPathfinder pathfinder;
 
     private float attackDelayTimer = 0f;
     private Vector2 lockedTargetPosition;
+
+    [Header("Drop")]
+    public GameObject[] dropPrefabs;   // kéo ItemPickup prefab vào
+    [Range(0f, 1f)]
+    public float dropChance = 0.5f;    // 50% rơi đồ
 
     // ── State ─────────────────────────────────────────────
     public enum BatState { Idle, Chase, PreAttack, Attack, Dead, Returning }
@@ -31,6 +37,17 @@ public class BatController : BaseEnemy
     {
         base.Awake();
         anim = GetComponent<BatAnimator>();
+        pathfinder = GetComponent<EnemyPathfinder>();
+        // Sync HP bar canvas với sorting layer của Bat
+        SpriteRenderer batRenderer = GetComponentInChildren<SpriteRenderer>();
+        Canvas hpCanvas = GetComponentInChildren<Canvas>();
+
+        if (batRenderer != null && hpCanvas != null)
+        {
+            hpCanvas.overrideSorting = true;
+            hpCanvas.sortingLayerID = batRenderer.sortingLayerID;
+            hpCanvas.sortingOrder = 3; // trên sprite bat (thường order 0-1) và poison/warning (order 2)
+        }
 
         if (poisonAttackPrefab != null)
         {
@@ -104,7 +121,17 @@ public class BatController : BaseEnemy
             return;
         }
 
-        rb.velocity = dir * moveSpeed;
+        // Dùng hướng đi theo A* từ EnemyPathfinder, thay vì đâm thẳng vào target
+        Vector2 moveDir = pathfinder.CurrentMoveDirection;
+        if (moveDir != Vector2.zero)
+        {
+            rb.velocity = moveDir * moveSpeed;
+            UpdateFacingDirection(moveDir);   // facing theo hướng path, không theo hướng target thẳng
+        }
+        else
+        {
+            rb.velocity = Vector2.zero;
+        }
     }
 
     void UpdatePreAttack()
@@ -136,7 +163,11 @@ public class BatController : BaseEnemy
     // ── Animation Events ──────────────────────────────────
     public void OnAttackSpawn()
     {
-        pooledAttack?.Spawn(lockedTargetPosition);
+        Transform target = GetClosestTarget();
+        pooledAttack?.Spawn(lockedTargetPosition, target?.gameObject);
+
+        //if (pooledAttack != null)
+        //    pooledAttack.gameObject.layer = gameObject.layer;
     }
 
     public void OnAttackEnd()
@@ -149,8 +180,19 @@ public class BatController : BaseEnemy
     // ── BaseEnemy abstract impl ───────────────────────────
     protected override void OnFacingChanged(int direction) => anim?.UpdateDirection(direction);
 
-    protected override void OnDeath(DamageSource source) => SetState(BatState.Dead);
+    protected override void OnDeath(DamageSource source) { 
+        SetState(BatState.Dead);
+        DropItem();
+    }
 
+    void DropItem()
+    {
+        if (dropPrefabs.Length == 0) return;
+        if (Random.value > dropChance) return;
+
+        GameObject prefab = dropPrefabs[Random.Range(0, dropPrefabs.Length)];
+        Instantiate(prefab, transform.position, Quaternion.identity);
+    }
     public override void ForceChase()
     {
         if (State == BatState.Dead || State == BatState.Chase || State == BatState.Attack) return;
@@ -175,8 +217,8 @@ public class BatController : BaseEnemy
         {
             attackDelayTimer = attackDelay;
 
-            // Hiện cảnh báo tại vị trí đã lock
-            pooledWarning?.Show(lockedTargetPosition, attackDelay);
+            Transform target = GetClosestTarget();
+            pooledWarning?.Show(lockedTargetPosition, attackDelay, target?.gameObject);
         }
 
         Debug.Log($"[Bat:{name}] State → {newState}");

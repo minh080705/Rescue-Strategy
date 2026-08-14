@@ -33,7 +33,7 @@ TagManager:
   - Layer 2
   - Layer 3
   - 
-  - 
+  - CharacterPreview
   - 
   - 
   - 
@@ -48,9 +48,18 @@ TagManager:
   - name: Layer 1
     uniqueID: 2425651459
     locked: 0
+  - name: Item Layer1
+    uniqueID: 355550667
+    locked: 0
   - name: Layer 2
     uniqueID: 4250941897
     locked: 0
+  - name: Item Layer2
+    uniqueID: 3398168361
+    locked: 0
   - name: Layer 3
     uniqueID: 4189426099
+    locked: 0
+  - name: CharacterPreview
+    uniqueID: 1192396547
     locked: 0

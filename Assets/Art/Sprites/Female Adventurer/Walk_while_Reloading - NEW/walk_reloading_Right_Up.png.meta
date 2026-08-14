@@ -113,12 +113,12 @@ TextureImporter:
       name: walk_reloading_Right_Up_0
       rect:
         serializedVersion: 2
-        x: 15
-        y: 20
-        width: 24
-        height: 24
+        x: 0
+        y: 0
+        width: 48
+        height: 64
       alignment: 9
-      pivot: {x: 0.39704657, y: 0.001279672}
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -134,12 +134,12 @@ TextureImporter:
       name: walk_reloading_Right_Up_1
       rect:
         serializedVersion: 2
-        x: 63
-        y: 22
-        width: 24
-        height: 21
+        x: 48
+        y: 0
+        width: 48
+        height: 64
       alignment: 9
-      pivot: {x: 0.41403422, y: 0.007803508}
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -155,12 +155,12 @@ TextureImporter:
       name: walk_reloading_Right_Up_2
       rect:
         serializedVersion: 2
-        x: 111
-        y: 21
-        width: 24
-        height: 22
+        x: 96
+        y: 0
+        width: 48
+        height: 64
       alignment: 9
-      pivot: {x: 0.40750632, y: 0.0072072637}
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -176,12 +176,12 @@ TextureImporter:
       name: walk_reloading_Right_Up_3
       rect:
         serializedVersion: 2
-        x: 159
-        y: 21
-        width: 24
-        height: 23
+        x: 144
+        y: 0
+        width: 48
+        height: 64
       alignment: 9
-      pivot: {x: 0.36223283, y: 0.0036860756}
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -197,12 +197,12 @@ TextureImporter:
       name: walk_reloading_Right_Up_4
       rect:
         serializedVersion: 2
-        x: 207
-        y: 21
-        width: 23
-        height: 23
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 192
+        y: 0
+        width: 48
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -218,12 +218,12 @@ TextureImporter:
       name: walk_reloading_Right_Up_5
       rect:
         serializedVersion: 2
-        x: 255
-        y: 21
-        width: 22
-        height: 22
+        x: 240
+        y: 0
+        width: 48
+        height: 64
       alignment: 9
-      pivot: {x: 0.44553307, y: 0.006808454}
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -239,12 +239,12 @@ TextureImporter:
       name: walk_reloading_Right_Up_6
       rect:
         serializedVersion: 2
-        x: 303
-        y: 20
-        width: 23
-        height: 23
+        x: 288
+        y: 0
+        width: 48
+        height: 64
       alignment: 9
-      pivot: {x: 0.38914025, y: 0.024636062}
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -260,12 +260,12 @@ TextureImporter:
       name: walk_reloading_Right_Up_7
       rect:
         serializedVersion: 2
-        x: 351
-        y: 20
-        width: 24
-        height: 24
+        x: 336
+        y: 0
+        width: 48
+        height: 64
       alignment: 9
-      pivot: {x: 0.35834503, y: 0.011804978}
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

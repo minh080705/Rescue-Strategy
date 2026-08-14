@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8346414643523357491}
   - component: {fileID: 2446122272073361372}
   - component: {fileID: 4630102261715692497}
-  m_Layer: 20
+  m_Layer: 21
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 7572866170601798531}
   - component: {fileID: 4241201154007536927}
   - component: {fileID: 9090515201881774623}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: Bat
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -155,8 +155,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1869315837
-  m_SortingLayer: 1
+  m_SortingLayerID: -44025399
+  m_SortingLayer: 3
   m_SortingOrder: 3
   m_Sprite: {fileID: 333885620, guid: ad5e74202f9e34146a5a82a6564f61b0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -225,11 +225,11 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.022024155, y: -0.018460145}
-  m_Size: {x: 1.6672091, y: 0.46911338}
+  m_Offset: {x: 0.022024147, y: -0.077008024}
+  m_Size: {x: 1.6672103, y: 0.80478895}
   m_Direction: 1
 --- !u!114 &2239082328319557450
 MonoBehaviour:
@@ -243,7 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3936d4821c4cca7409932a12072d5e79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 6
+  maxHP: 3
   onHPChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -344,11 +344,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b402f7a110793347a053fe6596b69e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
-  detectionRange: 6
+  moveSpeed: 5
+  detectionRange: 7
   attackRange: 4
-  attackCooldown: 2
-  idleAfterAttackDuration: 2
+  attackCooldown: 1
+  idleAfterAttackDuration: 1
   knockbackDuration: 0.3
   group: {fileID: 0}
   attackDelay: 2
@@ -356,6 +356,9 @@ MonoBehaviour:
     type: 3}
   warningIndicatorPrefab: {fileID: 1496417500351307576, guid: ef382405e94bc784faa3e05424ac36a9,
     type: 3}
+  dropPrefabs:
+  - {fileID: 5121307806488076368, guid: 86b1d6a43674a4a40b1cbc482d1be3e8, type: 3}
+  dropChance: 0.709
 --- !u!1 &6404737785864844211
 GameObject:
   m_ObjectHideFlags: 0
@@ -367,13 +370,13 @@ GameObject:
   - component: {fileID: 6520558996226288760}
   - component: {fileID: 6501033575032376328}
   - component: {fileID: 546347945406173289}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6520558996226288760
 Transform:
   m_ObjectHideFlags: 0
@@ -403,7 +406,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   source: 1
-  targetTag: Player
+  targetTags:
+  - Player
   knockbackForce: 5
 --- !u!61 &546347945406173289
 BoxCollider2D:
@@ -461,7 +465,7 @@ GameObject:
   - component: {fileID: 8008834033731504335}
   - component: {fileID: 8381216502652143931}
   - component: {fileID: 3250219640063822486}
-  m_Layer: 20
+  m_Layer: 21
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -539,7 +543,7 @@ GameObject:
   - component: {fileID: 9135907272396234014}
   - component: {fileID: 5667077558268503041}
   - component: {fileID: 3695543196198298287}
-  m_Layer: 20
+  m_Layer: 21
   m_Name: HPBarCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}

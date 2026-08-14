@@ -113,12 +113,12 @@ TextureImporter:
       name: Dash_Gun_Right_Down_0
       rect:
         serializedVersion: 2
-        x: 16
-        y: 20
-        width: 19
-        height: 26
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 0
+        y: 0
+        width: 48
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -134,12 +134,12 @@ TextureImporter:
       name: Dash_Gun_Right_Down_1
       rect:
         serializedVersion: 2
-        x: 67
-        y: 21
-        width: 17
-        height: 23
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 48
+        y: 0
+        width: 48
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -155,12 +155,12 @@ TextureImporter:
       name: Dash_Gun_Right_Down_2
       rect:
         serializedVersion: 2
-        x: 114
-        y: 19
-        width: 20
-        height: 24
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 96
+        y: 0
+        width: 48
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -176,12 +176,12 @@ TextureImporter:
       name: Dash_Gun_Right_Down_3
       rect:
         serializedVersion: 2
-        x: 162
-        y: 19
-        width: 20
-        height: 24
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 144
+        y: 0
+        width: 48
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -197,12 +197,12 @@ TextureImporter:
       name: Dash_Gun_Right_Down_4
       rect:
         serializedVersion: 2
-        x: 210
-        y: 19
-        width: 20
-        height: 23
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 192
+        y: 0
+        width: 48
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -218,12 +218,12 @@ TextureImporter:
       name: Dash_Gun_Right_Down_5
       rect:
         serializedVersion: 2
-        x: 259
-        y: 18
-        width: 19
-        height: 24
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 240
+        y: 0
+        width: 48
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -239,12 +239,12 @@ TextureImporter:
       name: Dash_Gun_Right_Down_6
       rect:
         serializedVersion: 2
-        x: 309
-        y: 17
-        width: 17
-        height: 23
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 288
+        y: 0
+        width: 48
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -260,12 +260,12 @@ TextureImporter:
       name: Dash_Gun_Right_Down_7
       rect:
         serializedVersion: 2
-        x: 356
-        y: 21
-        width: 17
-        height: 22
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 336
+        y: 0
+        width: 48
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

@@ -113,12 +113,12 @@ TextureImporter:
       name: death_Spear_Left_Down_0
       rect:
         serializedVersion: 2
-        x: 14
-        y: 20
-        width: 19
-        height: 28
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 0
+        y: 0
+        width: 48
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -134,12 +134,12 @@ TextureImporter:
       name: death_Spear_Left_Down_1
       rect:
         serializedVersion: 2
-        x: 58
-        y: 20
-        width: 22
-        height: 25
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 48
+        y: 0
+        width: 48
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -155,12 +155,12 @@ TextureImporter:
       name: death_Spear_Left_Down_2
       rect:
         serializedVersion: 2
-        x: 100
-        y: 21
-        width: 27
-        height: 20
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 96
+        y: 0
+        width: 48
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -176,12 +176,12 @@ TextureImporter:
       name: death_Spear_Left_Down_3
       rect:
         serializedVersion: 2
-        x: 146
-        y: 21
-        width: 29
-        height: 21
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 144
+        y: 0
+        width: 48
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -197,12 +197,12 @@ TextureImporter:
       name: death_Spear_Left_Down_4
       rect:
         serializedVersion: 2
-        x: 195
-        y: 21
-        width: 27
-        height: 20
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 192
+        y: 0
+        width: 48
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -218,12 +218,12 @@ TextureImporter:
       name: death_Spear_Left_Down_5
       rect:
         serializedVersion: 2
-        x: 242
-        y: 20
-        width: 27
-        height: 20
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 240
+        y: 0
+        width: 48
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -240,11 +240,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 288
-        y: 15
-        width: 27
-        height: 15
+        y: 0
+        width: 48
+        height: 64
       alignment: 9
-      pivot: {x: 0.48950648, y: 0.5666229}
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -261,11 +261,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 336
-        y: 15
-        width: 27
-        height: 14
+        y: 0
+        width: 48
+        height: 64
       alignment: 9
-      pivot: {x: 0.50000113, y: 0.46544033}
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

@@ -155,6 +155,143 @@ Transform:
   m_Children: []
   m_Father: {fileID: 56613947137595157}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8199541796079151986
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1455970602524781926}
+  - component: {fileID: 434970050312500564}
+  - component: {fileID: 5615391804370664330}
+  - component: {fileID: 355302099611605793}
+  m_Layer: 0
+  m_Name: SpearHitbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1455970602524781926
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8199541796079151986}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 56613947137595157}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &434970050312500564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8199541796079151986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fa2e0442feb87343aac9815c3b454d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 2
+  source: 0
+  targetTag: Enemy
+  knockbackForce: 5
+--- !u!70 &5615391804370664330
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8199541796079151986}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0019841194, y: 0.8889937}
+  m_Size: {x: 0.57594967, y: 1.1483413}
+  m_Direction: 0
+--- !u!212 &355302099611605793
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8199541796079151986}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 0
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &8223863227845156031
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,13 +399,15 @@ GameObject:
   - component: {fileID: 4986812903630831074}
   - component: {fileID: 1077788456845714574}
   - component: {fileID: 4730271279279012241}
+  - component: {fileID: 3918633211075298279}
   - component: {fileID: 4209804427086136133}
   - component: {fileID: 143502458885654502}
   - component: {fileID: 407378225148279692}
   - component: {fileID: 3510066392183560782}
   - component: {fileID: 7158867845103928028}
-  - component: {fileID: 4017332584596353839}
   - component: {fileID: -3954448815026997179}
+  - component: {fileID: 132190450044782752}
+  - component: {fileID: 9222321778849838623}
   m_Layer: 20
   m_Name: Player2
   m_TagString: Player
@@ -284,7 +423,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8466680307104985712}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 14.76, y: 19.79, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -298,6 +437,7 @@ Transform:
   - {fileID: 9130965511107648927}
   - {fileID: 8209939742055755253}
   - {fileID: 2665254867937318273}
+  - {fileID: 1455970602524781926}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5226514516847377936
@@ -341,7 +481,7 @@ SpriteRenderer:
   m_SortingLayerID: -1869315837
   m_SortingLayer: 1
   m_SortingOrder: 3
-  m_Sprite: {fileID: 985579227, guid: 78a059ddf59dd994f8e9b0a95de57de4, type: 3}
+  m_Sprite: {fileID: 1368013315, guid: e0bcfd306812ba3439542b9a48a99093, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -395,7 +535,7 @@ MonoBehaviour:
   dashKey: 32
   dashSpeed: 15
   dashDuration: 0.2
-  dashCooldown: 0.5
+  dashCooldown: 5
   enemyLayerName: Enemy
 --- !u!114 &1077788456845714574
 MonoBehaviour:
@@ -409,11 +549,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f1dbec6f29c3494bb20b4ec438fb286, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useKeyboardInput: 1
   keyBareHand: 49
   keySpear: 50
   keyGun: 51
   bareHandWeapon: {fileID: 0}
-  spearWeapon: {fileID: 0}
+  spearWeapon: {fileID: 3918633211075298279}
   gunWeapon: {fileID: 4730271279279012241}
 --- !u!114 &4730271279279012241
 MonoBehaviour:
@@ -427,8 +568,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2240038c90c7999409265bfaccc17a7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxAmmo: 110
+  maxAmmo: 30
   reloadDuration: 0.7
+  ammoPanel: {fileID: 0}
   fireRate: 0.1
   reloadKey: 114
   muzzlePoints:
@@ -450,6 +592,21 @@ MonoBehaviour:
   onReloadEnd:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3918633211075298279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8466680307104985712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 924c6104c648da443a68a67345449c5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackCooldown: 1.2
+  hitboxDuration: 1
+  hitbox: {fileID: 434970050312500564}
 --- !u!114 &4209804427086136133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -462,7 +619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3936d4821c4cca7409932a12072d5e79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
+  maxHP: 10
   onHPChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -557,51 +714,6 @@ CapsuleCollider2D:
   m_Offset: {x: -0.024159431, y: 0.27241123}
   m_Size: {x: 0.5126343, y: 0.57911325}
   m_Direction: 0
---- !u!61 &4017332584596353839
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8466680307104985712}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.05468273, y: 0.109638214}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.7045748, y: 0.016459579}
-    oldSize: {x: 1.0416666, y: 1.0416666}
-    newSize: {x: 0.12, y: 0.23}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.30966187, y: 0.0001}
-  m_EdgeRadius: 0
 --- !u!114 &-3954448815026997179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -614,8 +726,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa0748c04e10eef4f8aadcf934aeed65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetHealth: {fileID: 4209804427086136133}
   fillImage: {fileID: 0}
   hpText: {fileID: 0}
+  lowHPColor: {r: 1, g: 0, b: 0, a: 1}
+  fullHPColor: {r: 0, g: 1, b: 0, a: 1}
+--- !u!114 &132190450044782752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8466680307104985712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79621f26a0ff5a14f96b1d3b81fa9b4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &9222321778849838623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8466680307104985712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a9539b6f9804084e8388b5e7380aeca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  joystick: {fileID: 0}
+  attackButton: {fileID: 0}
+  dashButton: {fileID: 0}
+  weaponButton: {fileID: 0}
+  reloadButton: {fileID: 0}
+  inventoryButton: {fileID: 0}
+  inventoryUI: {fileID: 0}
+  controller: {fileID: 4986812903630831074}
+  combat: {fileID: 143502458885654502}
+  weaponManager: {fileID: 1077788456845714574}
 --- !u!1 &8501485711005952060
 GameObject:
   m_ObjectHideFlags: 0
@@ -685,7 +834,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 4.8961697
+  orthographic size: 6.017064
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

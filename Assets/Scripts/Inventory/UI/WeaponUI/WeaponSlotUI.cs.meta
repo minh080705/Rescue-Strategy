@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: e83e4b460ee480b46b5ba77ea561efd4
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - weaponIcon: {instanceID: 0}
+  - weaponNameText: {instanceID: 0}
+  - weaponSlotButton: {instanceID: 0}
+  - popupPanel: {instanceID: 0}
+  - popupContent: {instanceID: 0}
+  - weaponOptionPrefab: {instanceID: 0}
+  - bareHandIcon: {fileID: 21300000, guid: ca2fee466c31c1a4287e90c158a3f0dd, type: 3}
+  - spearIcon: {instanceID: 0}
+  - gunIcon: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

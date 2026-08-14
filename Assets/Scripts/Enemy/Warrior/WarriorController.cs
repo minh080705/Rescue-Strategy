@@ -15,7 +15,7 @@ public class WarriorController : BaseEnemy
 
     // ── Internal ──────────────────────────────────────────
     private WarriorAnimator anim;
-
+    private EnemyPathfinder pathfinder;
     private float attackTimeoutTimer = 0f;
 
     // ── State ─────────────────────────────────────────────
@@ -27,6 +27,18 @@ public class WarriorController : BaseEnemy
     {
         base.Awake();
         anim = GetComponent<WarriorAnimator>();
+
+        // Sync HP bar canvas với sorting layer của Warrior
+        SpriteRenderer warriorRenderer = GetComponentInChildren<SpriteRenderer>();
+        Canvas hpCanvas = GetComponentInChildren<Canvas>();
+        pathfinder = GetComponent<EnemyPathfinder>();
+
+        if (warriorRenderer != null && hpCanvas != null)
+        {
+            hpCanvas.overrideSorting = true;
+            hpCanvas.sortingLayerID = warriorRenderer.sortingLayerID;
+            hpCanvas.sortingOrder = 3;//
+        }
     }
 
     protected override void OnEnable()
@@ -80,17 +92,27 @@ public class WarriorController : BaseEnemy
         float dist = Vector2.Distance(transform.position, target.position);
         if (dist > GetEffectiveDetectionRange()) { SetState(WarriorState.Idle); return; }
 
-        Vector2 dir = ((Vector2)target.position - (Vector2)transform.position).normalized;
-        UpdateFacingDirection(dir);
+        Vector2 dirToTarget = ((Vector2)target.position - (Vector2)transform.position).normalized;
 
         if (dist <= attackRange)
         {
+            UpdateFacingDirection(dirToTarget);
             rb.velocity = Vector2.zero;
             if (attackCooldownTimer <= 0f) SetState(WarriorState.Attack);
             return;
         }
 
-        rb.velocity = dir * moveSpeed;
+        // Dùng hướng đi theo A* từ EnemyPathfinder, thay vì đâm thẳng vào target
+        Vector2 moveDir = pathfinder.CurrentMoveDirection;
+        if (moveDir != Vector2.zero)
+        {
+            rb.velocity = moveDir * moveSpeed;
+            UpdateFacingDirection(moveDir);   // facing theo hướng path, không theo hướng target thẳng
+        }
+        else
+        {
+            rb.velocity = Vector2.zero;
+        }
     }
 
     void UpdateAttack()

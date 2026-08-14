@@ -113,12 +113,12 @@ TextureImporter:
       name: death_Spear_Up_0
       rect:
         serializedVersion: 2
-        x: 17
-        y: 21
-        width: 18
-        height: 26
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 0
+        y: 0
+        width: 48
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -134,12 +134,12 @@ TextureImporter:
       name: death_Spear_Up_1
       rect:
         serializedVersion: 2
-        x: 65
-        y: 21
-        width: 18
-        height: 21
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 48
+        y: 0
+        width: 48
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -155,12 +155,12 @@ TextureImporter:
       name: death_Spear_Up_2
       rect:
         serializedVersion: 2
-        x: 114
-        y: 20
-        width: 17
-        height: 19
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 96
+        y: 0
+        width: 48
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -176,12 +176,12 @@ TextureImporter:
       name: death_Spear_Up_3
       rect:
         serializedVersion: 2
-        x: 162
-        y: 21
-        width: 17
-        height: 19
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 144
+        y: 0
+        width: 48
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -197,12 +197,12 @@ TextureImporter:
       name: death_Spear_Up_4
       rect:
         serializedVersion: 2
-        x: 210
-        y: 20
-        width: 17
-        height: 21
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 192
+        y: 0
+        width: 48
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -218,12 +218,12 @@ TextureImporter:
       name: death_Spear_Up_5
       rect:
         serializedVersion: 2
-        x: 257
-        y: 21
-        width: 19
-        height: 25
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 240
+        y: 0
+        width: 48
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -239,12 +239,12 @@ TextureImporter:
       name: death_Spear_Up_7
       rect:
         serializedVersion: 2
-        x: 304
-        y: 21
-        width: 20
-        height: 22
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 336
+        y: 0
+        width: 48
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -257,22 +257,22 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: death_Spear_Up_8
+      name: death_Spear_Up_6
       rect:
         serializedVersion: 2
-        x: 352
-        y: 21
-        width: 21
-        height: 22
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 288
+        y: 0
+        width: 48
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6a2443779a17ca4c9842fba553128ba
-      internalID: 812094343
+      spriteID: 7fb215d01191154488737925307936bf
+      internalID: -1378196795
       vertices: []
       indices: 
       edges: []
@@ -296,7 +296,6 @@ TextureImporter:
       death_Spear_Up_5: 1155108421
       death_Spear_Up_6: -1378196795
       death_Spear_Up_7: -2002170218
-      death_Spear_Up_8: 812094343
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

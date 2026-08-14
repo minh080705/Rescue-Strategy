@@ -1,15 +1,4 @@
 ﻿// Assets/Scripts/Enemy/SpawnPoint.cs
-// Đặt rải rác trên map. Mỗi SpawnPoint tự quản lý logic spawn.
-//
-// Immediate  — spawn ngay khi scene load
-// Proximity  — spawn 1 lần khi player vào TriggerRadius
-//
-// Mỗi SpawnPoint có danh sách EnemyEntry:
-//   - Prefab enemy muốn spawn
-//   - Số lượng
-//   - Phase: Normal (đi tới) hoặc Return (quay về với con tin)
-
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,6 +17,16 @@ public class SpawnPoint : MonoBehaviour
         public GameObject prefab;
         public int count = 1;
         public SpawnPhase phase = SpawnPhase.Normal;
+
+        [Header("Layer Settings")]
+        [Tooltip("Physics Layer (tên phải khớp Project Settings > Tags and Layers)")]
+        public string physicsLayer = "Default";
+
+        [Tooltip("Sorting Layer (tên phải khớp Project Settings > Tags and Layers)")]
+        public string sortingLayerName = "Default";
+
+        [Tooltip("Order in Layer (số nhỏ = vẽ phía sau)")]
+        public int orderInLayer = 0;
     }
 
     // ── Inspector ─────────────────────────────────────────
@@ -59,6 +58,7 @@ public class SpawnPoint : MonoBehaviour
 
     private EnemyGroup enemyGroup;
     private Transform playerTransform;
+    private HostageAI hostage;
 
     // ── Unity lifecycle ───────────────────────────────────
     void Awake()
@@ -66,32 +66,24 @@ public class SpawnPoint : MonoBehaviour
         EnemySpawnManager.Instance?.Register(this);
     }
 
-    private HostageController hostage;
-
     void Start()
     {
-        // Cache player
         GameObject p = GameObject.FindGameObjectWithTag("Player");
         if (p != null) playerTransform = p.transform;
 
-        // Tạo EnemyGroup cho nhóm này
         enemyGroup = gameObject.AddComponent<EnemyGroup>();
+        hostage = FindObjectOfType<HostageAI>();
 
-        // Cache hostage
-        hostage = FindObjectOfType<HostageController>();
-
-        // Immediate → spawn ngay
         if (spawnType == SpawnType.Immediate && !hasSpawnedNormal)
         {
             StartCoroutine(SpawnEnemies(SpawnPhase.Normal));
             hasSpawnedNormal = true;
         }
     }
-
+    
     void Update()
     {
-        // Detect hostage Following → chuyển sang Return phase
-        if (!isReturning && hostage != null && hostage.State == HostageState.Following)
+        if (!isReturning && hostage != null && hostage.HostageState == HostageState.Following)
         {
             isReturning = true;
             Debug.Log($"[SpawnPoint] {gameObject.name} chuyển sang Return phase (Hostage Following)");
@@ -102,14 +94,12 @@ public class SpawnPoint : MonoBehaviour
 
         float dist = Vector2.Distance(transform.position, playerTransform.position);
 
-        // Normal phase
         if (!hasSpawnedNormal && !isReturning && dist <= triggerRadius)
         {
             hasSpawnedNormal = true;
             StartCoroutine(SpawnEnemies(SpawnPhase.Normal));
         }
 
-        // Return phase
         if (!hasSpawnedReturn && isReturning && dist <= triggerRadius)
         {
             hasSpawnedReturn = true;
@@ -117,29 +107,26 @@ public class SpawnPoint : MonoBehaviour
         }
     }
 
-    // ── Spawn ─────────────────────────────────────────────
+    // ── Spawn ────────────────────────────────────────────
     IEnumerator SpawnEnemies(SpawnPhase currentPhase)
     {
         foreach (EnemyEntry entry in enemies)
         {
             if (entry.phase != currentPhase && entry.phase != SpawnPhase.Both)
                 continue;
-
             if (entry.prefab == null) continue;
 
             List<Vector2> positions = GetFormationPositions(entry.count);
 
             for (int i = 0; i < entry.count; i++)
             {
-                Vector2 spawnPos = positions[i];
-                GameObject obj = EnemySpawnManager.Instance.Get(entry.prefab, spawnPos);
+                GameObject obj = EnemySpawnManager.Instance.Get(entry.prefab, positions[i]);
 
-                // Gán vào group của SpawnPoint này
+                ApplyLayerSettings(obj, entry);
+
                 BaseEnemy enemy = obj.GetComponent<BaseEnemy>();
                 if (enemy != null)
-                {
                     enemy.group = enemyGroup;
-                }
 
                 SpawnPointReturnHelper helper = obj.GetComponent<SpawnPointReturnHelper>();
                 if (helper == null)
@@ -151,6 +138,44 @@ public class SpawnPoint : MonoBehaviour
         }
 
         Debug.Log($"[SpawnPoint] {gameObject.name} spawned phase={currentPhase}");
+    }
+
+    // ── Áp dụng toàn bộ layer settings sau khi spawn ─────
+    void ApplyLayerSettings(GameObject obj, EnemyEntry entry)
+    {
+        // 1) Physics Layer — áp dụng đệ quy cho toàn bộ cây
+        int physicsLayerIndex = LayerMask.NameToLayer(entry.physicsLayer);
+        if (physicsLayerIndex == -1)
+            Debug.LogWarning($"[SpawnPoint] Physics layer '{entry.physicsLayer}' không tồn tại!");
+        else
+            SetPhysicsLayerRecursive(obj, physicsLayerIndex);
+
+        // 2) Sorting Layer + Order in Layer — áp dụng cho tất cả SpriteRenderer
+        SpriteRenderer[] renderers = obj.GetComponentsInChildren<SpriteRenderer>(true);
+        if (renderers.Length == 0)
+        {
+            Debug.LogWarning($"[SpawnPoint] {obj.name} không có SpriteRenderer nào!");
+            return;
+        }
+
+        foreach (SpriteRenderer sr in renderers)
+        {
+            sr.sortingLayerName = entry.sortingLayerName;
+            sr.sortingOrder = entry.orderInLayer;
+        }
+
+        Debug.Log($"[SpawnPoint] {obj.name} → " +
+                  $"PhysicsLayer='{entry.physicsLayer}' | " +
+                  $"SortingLayer='{entry.sortingLayerName}' | " +
+                  $"Order={entry.orderInLayer} " +
+                  $"({renderers.Length} renderer)");
+    }
+
+    void SetPhysicsLayerRecursive(GameObject obj, int layer)
+    {
+        obj.layer = layer;
+        foreach (Transform child in obj.transform)
+            SetPhysicsLayerRecursive(child.gameObject, layer);
     }
 
     // ── Formation positions ───────────────────────────────
@@ -167,12 +192,9 @@ public class SpawnPoint : MonoBehaviour
                 {
                     int col = i % cols;
                     int row = i / cols;
-
-                    // Căn giữa lưới theo tâm
                     int totalCols = Mathf.Min(count, cols);
                     float offsetX = (col - (totalCols - 1) / 2f) * spacing;
                     float offsetY = -row * spacing;
-
                     positions.Add(center + new Vector2(offsetX, offsetY));
                 }
                 break;
@@ -181,23 +203,16 @@ public class SpawnPoint : MonoBehaviour
                 for (int i = 0; i < count; i++)
                 {
                     float angle = i * (360f / count) * Mathf.Deg2Rad;
-                    float radius = spacing * count / (2f * Mathf.PI);
-                    radius = Mathf.Max(radius, spacing);
-                    Vector2 pos = center + new Vector2(
+                    float radius = Mathf.Max(spacing * count / (2f * Mathf.PI), spacing);
+                    positions.Add(center + new Vector2(
                         Mathf.Cos(angle) * radius,
-                        Mathf.Sin(angle) * radius
-                    );
-                    positions.Add(pos);
+                        Mathf.Sin(angle) * radius));
                 }
                 break;
 
-            case SpawnFormation.Random:
             default:
                 for (int i = 0; i < count; i++)
-                {
-                    Vector2 rnd = center + Random.insideUnitCircle * spacing;
-                    positions.Add(rnd);
-                }
+                    positions.Add(center + Random.insideUnitCircle * spacing);
                 break;
         }
 
@@ -208,9 +223,8 @@ public class SpawnPoint : MonoBehaviour
     void OnDrawGizmos()
     {
         Gizmos.color = spawnType == SpawnType.Immediate
-            ? new Color(1f, 0.5f, 0f, 0.4f)   // cam = Immediate
-            : new Color(0f, 0.8f, 1f, 0.4f);  // xanh = Proximity
-
+            ? new Color(1f, 0.5f, 0f, 0.4f)
+            : new Color(0f, 0.8f, 1f, 0.4f);
         Gizmos.DrawWireSphere(transform.position, 0.4f);
 
         if (spawnType == SpawnType.Proximity)

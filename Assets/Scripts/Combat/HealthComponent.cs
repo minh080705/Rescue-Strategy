@@ -1,6 +1,7 @@
 // Assets/Scripts/Combat/HealthComponent.cs
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.U2D;
 
 public class HealthComponent : MonoBehaviour, IDamageable
 {
@@ -19,10 +20,21 @@ public class HealthComponent : MonoBehaviour, IDamageable
     public int CurrentHP { get; private set; }
     public int MaxHP => maxHP;
 
+
+    public enum OwnerType { Player, Enemy, Other }
+    private OwnerType ownerType;
+
     // ── Unity lifecycle ──────────────────────────────────
     void Awake()
     {
-        CurrentHP = maxHP;
+        CurrentHP = maxHP; 
+
+        if (CompareTag("Player"))
+            ownerType = OwnerType.Player;
+        else if (CompareTag("Enemy"))
+            ownerType = OwnerType.Enemy;
+        else
+            ownerType = OwnerType.Other;
     }
 
     public void ResetHP()
@@ -42,6 +54,8 @@ public class HealthComponent : MonoBehaviour, IDamageable
 
         Debug.Log($"[Health] {gameObject.name} HP: {CurrentHP}/{maxHP}");
 
+        PlayHurtSound();
+
         if (CurrentHP == 0)
         {
             IsAlive = false;
@@ -60,6 +74,19 @@ public class HealthComponent : MonoBehaviour, IDamageable
 
         onKnockback?.Invoke(knockbackDir);
         TakeDamage(amount, source);
+    }
+
+    private void PlayHurtSound()
+    {
+        switch (ownerType)
+        {
+            case OwnerType.Player:
+                AudioManager.Instance?.Play("PlayerHurt");
+                break;
+            case OwnerType.Enemy:
+                AudioManager.Instance?.Play("EnemyHurt");
+                break;
+        }
     }
 
     public void Die()

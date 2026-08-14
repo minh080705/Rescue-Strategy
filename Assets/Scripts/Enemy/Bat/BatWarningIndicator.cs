@@ -13,25 +13,31 @@ public class BatWarningIndicator : MonoBehaviour
 
     // ── Internal ──────────────────────────────────────────
     private float timer;
-    private Animator anim;
-
-    private static readonly int HashShow = Animator.StringToHash("Show");
+    
 
     // ── Unity lifecycle ───────────────────────────────────
-    void Awake()
-    {
-        anim = GetComponent<Animator>();
-    }
 
     /// <summary>Gọi từ BatController khi vào PreAttack.</summary>
-    public void Show(Vector2 position, float showDuration)
+    public void Show(Vector2 position, float showDuration, GameObject target = null)
     {
         transform.position = position;
         duration = showDuration;
         timer = showDuration;
 
+        if (target != null)
+        {
+            gameObject.layer = target.layer;
+
+            SpriteRenderer targetRenderer = target.GetComponentInChildren<SpriteRenderer>();
+            SpriteRenderer myRenderer = GetComponentInChildren<SpriteRenderer>();
+
+            if (targetRenderer != null && myRenderer != null)
+            {
+                myRenderer.sortingLayerID = targetRenderer.sortingLayerID;
+                myRenderer.sortingOrder = 2;
+            }
+        }
         gameObject.SetActive(true);
-        anim?.SetTrigger(HashShow);
     }
 
     void Update()

@@ -11,12 +11,10 @@ GameObject:
   - component: {fileID: 606663252831797238}
   - component: {fileID: 8674188560309347463}
   - component: {fileID: 8768411368655346338}
-  - component: {fileID: 3956772557762283307}
   - component: {fileID: 7960410445154697144}
   - component: {fileID: 5578220523217715867}
   - component: {fileID: 8865458832525800432}
   - component: {fileID: 4681069880993970590}
-  - component: {fileID: 799112366111440003}
   - component: {fileID: 5061313719352740998}
   m_Layer: 20
   m_Name: Player
@@ -24,7 +22,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &606663252831797238
 Transform:
   m_ObjectHideFlags: 0
@@ -33,7 +31,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3169992076460506844}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 11.87, y: 15.7, z: -2.4657}
   m_LocalScale: {x: 0.773225, y: 0.773225, z: 0.773225}
   m_ConstrainProportionsScale: 0
@@ -104,51 +102,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0.12}
   m_Size: {x: 0.8, y: 0.3}
   m_Direction: 1
---- !u!61 &3956772557762283307
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3169992076460506844}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.041472882, y: 0.14039916}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5864611, y: 0.0019326491}
-    oldSize: {x: 1.1875, y: 2.125}
-    newSize: {x: 1.1875, y: 2.125}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.53470457, y: 0.2890123}
-  m_EdgeRadius: 0
 --- !u!212 &7960410445154697144
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -257,27 +210,6 @@ MonoBehaviour:
   comboWindow: 0.5
   maxAttackDuration: 1
   hitbox: {fileID: 7088526664975516183}
---- !u!114 &799112366111440003
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3169992076460506844}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b46e2de05b4696c488d524d9205e6ae8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bonePrefab: {fileID: 8332745835868441576, guid: de34173c77dbf254eba8c79a4b9d5e64,
-    type: 3}
-  throwKey: 113
-  cancelKey: 27
-  throwDistance: 3
-  throwCooldown: 0.2
-  poolSize: 3
-  previewAlpha: 0.11
-  aimSpeedMultiplier: 0.5
 --- !u!95 &5061313719352740998
 Animator:
   serializedVersion: 5

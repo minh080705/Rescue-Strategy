@@ -22,7 +22,7 @@ public class HitboxComponent : MonoBehaviour
 
     [Header("Tag của mục tiêu bị damage")]
     [Tooltip("Ví dụ: 'Enemy' nếu đây là hitbox của Player")]
-    public string targetTag = "Enemy";
+    public string[] targetTags = { "Player" };
 
     [Header("Knockback")]
     [Tooltip("Lực đẩy lùi khi trúng đòn")]
@@ -51,20 +51,26 @@ public class HitboxComponent : MonoBehaviour
         
     }
 
+    bool HasMatchingTag(Collider2D other)
+    {
+        foreach (var tag in targetTags)
+        {
+            if (other.CompareTag(tag)) return true;
+        }
+        return false;
+    }
     // ── Xử lý va chạm ────────────────────────────────────
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.CompareTag(targetTag)) return;
+        if (!HasMatchingTag(other)) return;
 
-        IDamageable target = other.GetComponent<IDamageable>();
+        IDamageable target = other.GetComponentInParent<IDamageable>();
         if (target == null || !target.IsAlive) return;
 
-        // Tính hướng knockback: từ hitbox đẩy ra xa
         Vector2 knockbackDir = ((Vector2)other.transform.position
                                 - (Vector2)transform.position).normalized;
 
-        // Gọi overload có knockback
-        HealthComponent health = other.GetComponent<HealthComponent>();
+        HealthComponent health = other.GetComponentInParent<HealthComponent>();
         if (health != null)
             health.TakeDamage(damage, source, knockbackDir * knockbackForce);
         else

@@ -113,12 +113,12 @@ TextureImporter:
       name: death_Spear_Right_Down_0
       rect:
         serializedVersion: 2
-        x: 16
-        y: 18
-        width: 15
-        height: 28
+        x: 0
+        y: 0
+        width: 48
+        height: 64
       alignment: 9
-      pivot: {x: 0.5377748, y: 0.151774}
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -134,12 +134,12 @@ TextureImporter:
       name: death_Spear_Right_Down_1
       rect:
         serializedVersion: 2
-        x: 65
-        y: 17
-        width: 15
-        height: 26
+        x: 48
+        y: 0
+        width: 48
+        height: 64
       alignment: 9
-      pivot: {x: 0.5875066, y: 0.14304073}
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -155,12 +155,12 @@ TextureImporter:
       name: death_Spear_Right_Down_2
       rect:
         serializedVersion: 2
-        x: 112
-        y: 19
-        width: 25
-        height: 22
+        x: 96
+        y: 0
+        width: 48
+        height: 64
       alignment: 9
-      pivot: {x: 0.41249236, y: 0.09944005}
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -176,12 +176,12 @@ TextureImporter:
       name: death_Spear_Right_Down_3
       rect:
         serializedVersion: 2
-        x: 160
-        y: 17
-        width: 28
-        height: 25
+        x: 144
+        y: 0
+        width: 48
+        height: 64
       alignment: 9
-      pivot: {x: 0.3730496, y: 0.19337074}
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -197,12 +197,12 @@ TextureImporter:
       name: death_Spear_Right_Down_5
       rect:
         serializedVersion: 2
-        x: 209
-        y: 8
-        width: 27
-        height: 33
+        x: 240
+        y: 0
+        width: 48
+        height: 64
       alignment: 9
-      pivot: {x: 0.3525498, y: 0.37915838}
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -218,12 +218,12 @@ TextureImporter:
       name: death_Spear_Right_Down_6
       rect:
         serializedVersion: 2
-        x: 258
-        y: 10
-        width: 28
-        height: 30
+        x: 288
+        y: 0
+        width: 48
+        height: 64
       alignment: 9
-      pivot: {x: 0.34822628, y: 0.33053}
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -239,12 +239,12 @@ TextureImporter:
       name: death_Spear_Right_Down_7
       rect:
         serializedVersion: 2
-        x: 306
-        y: 10
-        width: 27
-        height: 20
+        x: 336
+        y: 0
+        width: 48
+        height: 64
       alignment: 9
-      pivot: {x: 0.36359096, y: 0.46746427}
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -257,22 +257,22 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: death_Spear_Right_Down_8
+      name: death_Spear_Right_Down_4
       rect:
         serializedVersion: 2
-        x: 354
-        y: 8
-        width: 27
-        height: 20
+        x: 192
+        y: 0
+        width: 48
+        height: 64
       alignment: 9
-      pivot: {x: 0.3530974, y: 0.52412593}
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 35aef0b4d3f19e24c9a5eea90d2baad3
-      internalID: 473519318
+      spriteID: 007e37962ef949643bee385518820e04
+      internalID: -2086119776
       vertices: []
       indices: 
       edges: []
@@ -296,8 +296,6 @@ TextureImporter:
       death_Spear_Right_Down_5: 1073915958
       death_Spear_Right_Down_6: 1050733833
       death_Spear_Right_Down_7: -1902517901
-      death_Spear_Right_Down_8: 473519318
-      death_Spear_Right_Down_9: -1967970336
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
